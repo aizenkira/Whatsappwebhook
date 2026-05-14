@@ -1,0 +1,14 @@
+[build]
+builder = "dockerfile"
+
+[deploy]
+startCommand = "node index.js"
+restartPolicyType = "always"
+
+# Mount a persistent volume at /app/session so your WhatsApp session
+# survives restarts and you don't have to re-authenticate every time.
+#
+# To set this up in Railway:
+# 1. Go to your service → Settings → Volumes
+# 2. Add a volume mounted at: /app/session
+# 3. Redeploy — your session will now persist across restarts

@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: whatsapp-bot
+    runtime: node
+    buildCommand: npm install --omit=dev
+    startCommand: node index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+# IMPORTANT — Session persistence on Render:
+# Render's free tier uses an ephemeral filesystem.
+# Your session will be wiped on every restart (roughly every 15 minutes of inactivity).
+#
+# To avoid re-authenticating constantly, add a Render Disk:
+#   Dashboard → your service → Disks → Add Disk
+#   Mount path: /opt/render/project/src/session
+#   Size: 1 GB (minimum, $0.25/month)
+#
+# Alternatively, use Railway which includes persistent volumes on the free tier.
